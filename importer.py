@@ -16,6 +16,7 @@ for i,row in enumerate(artist['Artist']):
     if row not in list_Artist:
         list_Artist.append(row)     
 
+#Creation of nodes and dependency in the graph neo4j
 tx = graph.begin()
 for name in list_Artist:
     tx.run("CREATE (p:Person {name:{name}}) RETURN p", name=name) 
